@@ -1,18 +1,31 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<head>
-  <title>Plogress</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-      <section class="round">
-        <% flash.each do |key, value| %>
-          <div class="flash <%= key %>"><%= value %></div>
-        <% end %>
-      </section>
-<%= yield %>
+  <head>
+    <title>Plogress tracker!</title>
+      <%= stylesheet_link_tag    "application" %>
+      <%= stylesheet_link_tag    "styles.css" %>
+      <%= javascript_include_tag "application" %>
+      <%= csrf_meta_tags %>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" >
+  </head>
 
+  <body>
+    <div class="logo">
+      <%= image_tag("logo.png")   %>
+    </div>
+    <div class="topbg">
+      <div class="link">Tasks</div>
+      <div class="link">Help</div>
+      <div class="link">Tour</div>
+    </div>
+
+    <div class="fancy">
+      <%= image_tag("fancy.png")   %>
+    </div>
+
+    <div class="content">
+        <%= yield %>
+
+    </div>
 </body>
 </html>
