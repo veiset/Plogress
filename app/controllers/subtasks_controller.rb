@@ -1,4 +1,29 @@
 class SubtasksController < ApplicationController
+
+  # checks if an input matches a valid duration format
+  def hour_min(input_text)
+    hour_regex = /^(\d+)h?$/
+    minute_regex = /^((\d+)h)?([1-5][0-9]|[1-9])m?$/
+    hour = 0
+    minute = 0
+
+    if (t = hour_regex.match input_text)
+      hour = Integer(t[1])
+    elsif (t = minute_regex.match input_text)
+      if t[1]
+        hour = Integer(t[2])
+      end
+      minute = Integer(t[3])
+    end
+
+    if (hour == 0 and minute == 0)
+       return nil
+    else
+      return hour,minute
+    end
+  end
+
+
   # GET /subtasks
   # GET /subtasks.json
   def index
