@@ -15,12 +15,12 @@
     <div class="topbg">
 
         <% if session[:user] %>
-          <div class="link"><%= link_to 'Tasks', '/tasks' %></div>
+          <div class="link"><%= link_to 'Tasks', :controller => 'tasks' %></div>
                <div class="link"><%= link_to 'Profile', '#' %></div>
-            <div class="link"><%= link_to 'Logout', '/login/logout' %></div>
+            <div class="link"><%= link_to 'Logout',:controller => 'login', :action => 'logout' %></div>
         <% else %>
-            <div class="link"><%= link_to 'Login', '/login/start' %></div>
-          <div class="link"><%= link_to 'Register', '/register/start?' %></div>
+            <div class="link"><%= link_to 'Login', :controller => 'login', :action => 'start'  %></div>
+          <div class="link"><%= link_to 'Register', :controller => 'register', :action => 'start'  %></div>
 
         <% end %>
       </div>
