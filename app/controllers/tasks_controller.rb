@@ -2,7 +2,9 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
+    @user_id = session[:user].id
     @tasks = Task.all
+    @user_tasks = Task.find_all_by_user_id(@user_id)
 
     respond_to do |format|
       format.html # index.html.erb

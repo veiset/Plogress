@@ -4,6 +4,8 @@ Plogress::Application.routes.draw do
  root to: 'main#view', as: 'main'
   resources :sessions
 
+  get "login/logout"
+
   get "login/start"
 
   get "register/start"

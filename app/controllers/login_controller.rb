@@ -21,4 +21,9 @@ class LoginController < ApplicationController
     redirect_to :action => 'start'
   end
 
+  def logout
+    reset_session
+
+  end
+
 end
