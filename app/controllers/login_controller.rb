@@ -1,14 +1,14 @@
 class LoginController < ApplicationController
   def start
-    #test
   end
 
   def login
     username = params[:username]
     password = params[:password]
     user = User.find_by_username(username)
-    if(!user.nil?)
-      if(user.password.eql? password)
+
+    if(user)
+      if(user.authenticate(password))
         session[:user] = user
         redirect_to :controller => 'main', :action => 'view'
         return

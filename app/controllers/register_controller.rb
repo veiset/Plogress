@@ -36,7 +36,7 @@ class RegisterController < ApplicationController
       redirect_to :controller => 'login', :action => 'start'
       return
     else
-     flash[:error] = error_message
+      flash[:error] = error_message
     end
     redirect_to :action => 'start'
   end
