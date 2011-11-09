@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  duration: 9.99
+  description: MyText
+  created: 2011-11-09
+  subtask_id: 1
+
+two:
+  duration: 9.99
+  description: MyText
+  created: 2011-11-09
+  subtask_id: 1

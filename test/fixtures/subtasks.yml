@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  difficulty: 1
+  level: 1
+  created: 2011-11-07
+
+two:
+  title: MyString
+  difficulty: 1
+  level: 1
+  created: 2011-11-07

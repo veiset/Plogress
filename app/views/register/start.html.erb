@@ -1,0 +1,11 @@
+<h1>User registration</h1>
+
+<%= form_tag("/register/register", :method => "post") do %>
+<%= submit_tag("Register") %>
+<%= label_tag(:username, "Username") %>
+<%= text_field_tag(:username) %>
+<%= label_tag(:password, "Password") %>
+<%= text_field_tag(:password) %>
+<%= label_tag(:confirm_password, "Confirm password") %>
+<%= text_field_tag(:confirm_password) %>
+<% end %>
