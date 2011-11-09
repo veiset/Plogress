@@ -1,5 +1,6 @@
 class LoginController < ApplicationController
   def start
+    #test
   end
 
   def login
