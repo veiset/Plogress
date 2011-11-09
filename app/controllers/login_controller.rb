@@ -12,7 +12,7 @@ class LoginController < ApplicationController
     if(user)
       if(user.authenticate(password))
         session[:user] = user
-        redirect_to :controller => 'main', :action => 'view'
+        redirect_to :controller => 'tasks'
         return
       else
         flash[:error] = "Wrong password!"
@@ -25,7 +25,6 @@ class LoginController < ApplicationController
 
   def logout
     reset_session
-
   end
 
 end

@@ -2,9 +2,8 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @user_id = session[:user].id
     @tasks = Task.all
-    @user_tasks = Task.find_all_by_user_id(@user_id)
+    @user_tasks = Task.find_all_by_user_id(session[:user].id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -43,6 +42,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
+    @task.user_id = session[:user].id
 
     respond_to do |format|
       if @task.save
