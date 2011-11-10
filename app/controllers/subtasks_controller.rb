@@ -70,7 +70,7 @@ class SubtasksController < ApplicationController
 
     respond_to do |format|
       if @subtask.update_attributes(params[:subtask])
-        format.html { redirect_to @subtask, notice: 'Subtask was successfully updated.' }
+        format.html { redirect_to edit_subtask_path(@subtask), notice: 'Subtask was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
