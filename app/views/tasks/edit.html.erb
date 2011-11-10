@@ -13,7 +13,7 @@
         <td id="time"><%= task.duration %></td>
         <td id="subtask"><%= task.sessions.count %></td>
         <td id="prof"><%= task.proficiency_to_s %></td>
-        <td id="manage"><%= link_to 'Manage', edit_subtask_path(task) %></td>
+        <td id="manage"><%= link_to 'Manage', edit_subtask_path(task) %> <%= link_to 'X', task, confirm: 'Are you sure?', method: :delete %></td>
       </tr>
   <% end %>
   <tr>

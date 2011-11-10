@@ -1,13 +1,13 @@
 <h1>Listing tasks</h1>
-<p>User id:<%= session[:user].id%></p>
+<p>User id:<%= session[:user].id %></p>
 
 <table id="tasks">
   <tr>
-      <td id="heading_task">Task</td>
-      <td id="heading_time">Time</td>
-      <td id="heading_subtask">Subtasks</td>
-      <td id="heading_prof">Proficiency</td>
-      <td id="heading_manage"></td>
+    <td id="heading_task">Task</td>
+    <td id="heading_time">Time</td>
+    <td id="heading_subtask">Subtasks</td>
+    <td id="heading_prof">Proficiency</td>
+    <td id="heading_manage"></td>
   </tr>
 
   <% @tasks.each do |task| %>
@@ -16,21 +16,24 @@
         <td id="time"><%= task.duration %></td>
         <td id="subtask"><%= task.subtasks.count %></td>
         <td id="prof"><%= task.proficiency_to_s %></td>
-        <td id="manage"><%= link_to 'Manage', edit_task_path(task) %></td>
+        <td id="manage"><%= link_to 'Manage', edit_task_path(task) %> <%= link_to 'X', task, confirm: 'Are you sure?', method: :delete %></td>
       </tr>
   <% end %>
-   <tr>
-     <%= form_tag({:controller => 'tasks', :action => 'create_new'}, :method => "post") do %>
-     <tr><td colspan="5">&nbsp;</td></tr>
-     <td colspan="5">
+  <tr>
+    <%= form_tag({:controller => 'tasks', :action => 'create_new'}, :method => "post") do %>
+      <tr>
+        <td colspan="5">&nbsp;</td>
+      </tr>
+      <td colspan="5">
         <%= label_tag(:title, "Title") %>
         <%= text_field_tag(:title) %>
         <%= label_tag(:proficiency, "Proficiency") %>
-        <%= select( :proficiency, "proficiency", [['None',0],['Bad',1],['Decent',2],['Good',3,],['Proficient',4]]) %>
+        <%= select(:proficiency, "proficiency", [['None', 0], ['Bad', 1], ['Decent', 2], ['Good', 3,], ['Proficient', 4]]) %>
 
         <%= submit_tag("Create new") %>
-    </td></tr>
-         <% end %>
+      </td>
+      </tr>
+  <% end %>
 </table>
 
 

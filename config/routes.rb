@@ -1,12 +1,12 @@
 Plogress::Application.routes.draw do
   resources :users
 
- root to: 'tasks#index', as: 'tasks'
+  root to: 'tasks#index', as: 'tasks'
   resources :sessions
-  
-post "tasks/create_new"  
-post "main/create"
-post "subtasks/create_new"
+
+  post "tasks/create_new"
+  post "subtasks/create_new"
+  post "sessions/create_new"
 
   get "login/logout"
 
