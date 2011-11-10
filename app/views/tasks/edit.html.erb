@@ -2,5 +2,19 @@
 
 <%= render 'form' %>
 
+Subtasks:  <br>
+<% @x = Subtask.find_all_by_task_id(@task.id)  %>
+<% @x.each do |subtask| %>
+  <tr>
+    <td><%= subtask.id %></td>
+    <td><%= subtask.title %></td>
+    <br/>
+  </tr>
+<% end %>
+<br>
+######
+<%= link_to 'Add subtask', :controller => 'subtasks', :action => 'new', :task_id => @task.id  %>
+
+<p/><br>
 <%= link_to 'Show', @task %> |
 <%= link_to 'Back', tasks_path %>
