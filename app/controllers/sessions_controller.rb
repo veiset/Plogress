@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   # GET /sessions/1/edit
   def edit
     @session = Session.find(params[:id])
+    @subtask = Subtask.find(@session.subtask_id)
   end
 
   # PUT /sessions/1
