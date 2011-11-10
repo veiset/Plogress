@@ -19,21 +19,33 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
     @task = Task.find(params[:id])
+    access
+  end
+
+  def access
+    if (session[:user].id != @task.user_id)
+      flash[:error] = "You are not allowed to access this task."
+      redirect_to tasks_path
+      return false
+    end
+    return true
   end
 
   # PUT /tasks/1
   # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
-    @task.proficiency = params[:proficiency][:proficiency]
+    if (access)
+      @task.proficiency = params[:proficiency][:proficiency]
 
-    respond_to do |format|
-      if @task.update_attributes(params[:task])
-        format.html { redirect_to edit_task_path(@task), notice: 'Task was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @task.update_attributes(params[:task])
+          format.html { redirect_to edit_task_path(@task), notice: 'Task was successfully updated.' }
+          format.json { head :ok }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @task.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -42,11 +54,13 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     @task = Task.find(params[:id])
-    @task.destroy
+    if (access)
+      @task.destroy
 
-    respond_to do |format|
-      format.html { redirect_to tasks_url }
-      format.json { head :ok }
+      respond_to do |format|
+        format.html { redirect_to tasks_url }
+        format.json { head :ok }
+      end
     end
   end
 end
