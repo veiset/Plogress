@@ -17,7 +17,8 @@
   </div>
       <div class="field">
     <%= f.label :proficiency %><br />
-    <%= f.number_field :proficiency %>
+    <%= select( :proficiency, "proficiency", [['None',0],['Bad',1],['Decent',2],['Good',3,],['Proficient',4]]) %>
+
   </div>
   <div class="actions">
     <%= f.submit %>

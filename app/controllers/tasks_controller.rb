@@ -23,7 +23,7 @@ class TasksController < ApplicationController
   end
 
   def create_new
-    @task = Task.create(:title => params[:title], :user_id => session[:user].id, :proficiency => params[:proficiency], :created => Time.now)
+    @task = Task.create(:title => params[:title], :user_id => session[:user].id, :proficiency => params[:proficiency][:proficiency], :created => Time.now)
     redirect_to :action => 'index'
   end
 
@@ -64,6 +64,7 @@ class TasksController < ApplicationController
   # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
+    @task.proficiency = params[:proficiency][:proficiency]
 
     respond_to do |format|
       if @task.update_attributes(params[:task])

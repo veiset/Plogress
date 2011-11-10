@@ -18,4 +18,13 @@ class Subtask < ActiveRecord::Base
     end
     return dur
   end
+
+    def proficiency_level
+    return ["None", "Bad", "Decent", "Good", "Proficient"]
+  end
+
+  def proficiency_to_s
+    return proficiency_level[proficiency]
+  end
+
 end

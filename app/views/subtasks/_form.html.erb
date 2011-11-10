@@ -19,17 +19,11 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :difficulty %><br />
-    <%= f.number_field :difficulty %>
-  </div>
-  <div class="field">
-    <%= f.label :level %><br />
-    <%= f.number_field :level %>
-  </div>
-  <div class="field">
-    <%= f.label :created %><br />
-    <%= f.date_select :created %>
+
+      <div class="field">
+    <%= f.label :proficiency %><br />
+    <%= select( :proficiency, "proficiency", [['None',0],['Bad',1],['Decent',2],['Good',3,],['Proficient',4]]) %>
+
   </div>
   <div class="actions">
     <%= f.submit %>

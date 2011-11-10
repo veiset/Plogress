@@ -188,20 +188,24 @@ table a:visited:hover {color: #f1c68b; text-decoration: none;}
 
 td#heading_task {
   font-weight: bold;
-  width:160px;
+  width:180px;
   padding:8px;
   border-bottom:1px solid #000;
 }
 td#heading_time {
   font-weight: bold;
-  width:100px;
+  width:70px;
   border-bottom:1px solid #000;
+    text-align:right;
+
 }
 td#heading_subtask {
   font-weight: bold;
   width:100px;
   padding-right:10px;
   border-bottom:1px solid #000;
+    text-align:right;
+
 }
 td#heading_prof {
   border-left:1px solid #000;
@@ -218,11 +222,11 @@ td#task {
   letter-spacing: 1px;
   padding:5px;
   padding-left:14px;
-  width:160px;
+  width:180px;
 }
 td#time {
   letter-spacing: 1px;
-  width:100px;
+  width:70px;
   text-align:right;
 }
 td#subtask {

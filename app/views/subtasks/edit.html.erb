@@ -2,5 +2,37 @@
 
 <%= render 'form' %>
 
+
+<table id="tasks">
+  <tr>
+      <td id="heading_task">Subtask</td>
+      <td id="heading_time">&nbsp;</td>
+      <td id="heading_subtask"></td>
+      <td id="heading_subtask">Time</td>     ,
+      <td id="heading_prof">Proficiency</td>
+
+  </tr>
+  <% @x = Session.find_all_by_subtask_id(@subtask.id)  %>
+  <% @x.each do |session| %>
+      <tr>
+        <td id="task" colspan="3"><%= session.description %></td>
+        <td id="subtask"><%= session.duration %></td>
+        <td id="prof"><%= link_to 'Manage', edit_subtask_path(session) %></td>
+      </tr>
+  <% end %>
+   <tr>
+     <%= form_tag({:controller => 'tasks', :action => 'create_new'}, :method => "post") do %>
+     <tr><td colspan="5">&nbsp;</td></tr>
+     <td colspan="5">
+        <%= label_tag(:title, "Title") %>
+        <%= text_field_tag(:title) %>
+        <%= label_tag(:duration, "Duration")  %>
+        <%= text_field_tag(:duration) %>
+
+        <%= submit_tag("Create new") %>
+    </td></tr>
+         <% end %>
+</table>
+
 <%= link_to 'Show', @subtask %> |
 <%= link_to 'Back', subtasks_path %>

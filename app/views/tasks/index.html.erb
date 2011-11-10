@@ -21,14 +21,16 @@
   <% end %>
    <tr>
      <%= form_tag({:controller => 'tasks', :action => 'create_new'}, :method => "post") do %>
-     <td>
-<%= label_tag(:title, "Title") %></td>
-         <td>
-<%= text_field_tag(:title) %>    </td>
-<td><%= label_tag(:proficiency, "Proficiency") %>  </td>
-<%= number_field_tag(:proficiency) %>
-<td><%= submit_tag("Create new") %> </td>
-</td><% end %></tr>
+     <tr><td colspan="5">&nbsp;</td></tr>
+     <td colspan="5">
+        <%= label_tag(:title, "Title") %>
+        <%= text_field_tag(:title) %>
+        <%= label_tag(:proficiency, "Proficiency") %>
+        <%= select( :proficiency, "proficiency", [['None',0],['Bad',1],['Decent',2],['Good',3,],['Proficient',4]]) %>
+
+        <%= submit_tag("Create new") %>
+    </td></tr>
+         <% end %>
 </table>
 
 

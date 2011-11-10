@@ -1,15 +1,39 @@
 <h1>Editing task</h1>
 
 Subtasks:  <br>
-<% @x = Subtask.find_all_by_task_id(@task.id)  %>
-<% @x.each do |subtask| %>
+
+
+<table id="tasks">
   <tr>
-    <td><%= subtask.id %></td>
-    <td><%= subtask.title %></td>
-    <br/>
+      <td id="heading_task">Subtask</td>
+      <td id="heading_time">Time</td>
+      <td id="heading_subtask">Sessions</td>
+      <td id="heading_prof">Proficiency</td>
+      <td id="heading_manage"></td>
   </tr>
-<% end %>
-<br />
+  <% @x = Subtask.find_all_by_task_id(@task.id)  %>
+  <% @x.each do |task| %>
+      <tr>
+        <td id="task"><%= task.title %></td>
+        <td id="time"><%= task.duration %></td>
+        <td id="subtask"><%= task.sessions.count %></td>
+        <td id="prof"><%=  %></td>
+        <td id="manage"><%= link_to 'Manage', edit_subtask_path(task) %></td>
+      </tr>
+  <% end %>
+   <tr>
+     <%= form_tag({:controller => 'tasks', :action => 'create_new'}, :method => "post") do %>
+     <tr><td colspan="5">&nbsp;</td></tr>
+     <td colspan="5">
+        <%= label_tag(:title, "Title") %>
+        <%= text_field_tag(:title) %>
+        <%= label_tag(:proficiency, "Proficiency") %>
+        <%= select( :proficiency, "proficiency", [['None',0],['Bad',1],['Decent',2],['Good',3,],['Proficient',4]]) %>
+
+        <%= submit_tag("Create new") %>
+    </td></tr>
+         <% end %>
+</table>
 <%= link_to 'Add subtask', :controller => 'subtasks', :action => 'new', :task_id => @task.id  %>
 
 <p/><br>
