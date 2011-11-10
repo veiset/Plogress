@@ -16,10 +16,10 @@ class Subtask < ActiveRecord::Base
     sessions.each do |session|
       dur += session.duration
     end
-    return dur
+    return dur.round(2)
   end
 
-    def proficiency_level
+  def proficiency_level
     return ["None", "Bad", "Decent", "Good", "Proficient"]
   end
 

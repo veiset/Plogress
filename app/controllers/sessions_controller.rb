@@ -1,42 +1,10 @@
 class SessionsController < ApplicationController
-  # GET /sessions
-  # GET /sessions.json
-  def index
-    @sessions = Session.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @sessions }
-    end
-  end
 
   def create_new
     test = params[:subtask_id].first[0]
     subtask = Subtask.find(test)
     Session.create(:description => params[:description], :duration => params[:duration], :subtask_id => test, :created => Time.now)
     redirect_to edit_subtask_path(subtask)
-  end
-
-  # GET /sessions/1
-  # GET /sessions/1.json
-  def show
-    @session = Session.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @session }
-    end
-  end
-
-  # GET /sessions/new
-  # GET /sessions/new.json
-  def new
-    @session = Session.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @session }
-    end
   end
 
   # GET /sessions/1/edit

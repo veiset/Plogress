@@ -8,7 +8,7 @@ class Task < ActiveRecord::Base
     subtasks.each do |subtask|
       dur += subtask.duration
     end
-    return dur
+    return dur.round(2)
   end
 
   def proficiency_level
