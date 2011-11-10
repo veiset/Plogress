@@ -177,6 +177,14 @@ table#tasks {
   padding:10px;
 
 }
+table a:link {
+    color: #000;
+    text-decoration: underline;
+
+}
+table a:visited {color: #000; text-decoration: underline;}
+table a:link:hover {color: #f1c68b; text-decoration: none;}
+table a:visited:hover {color: #f1c68b; text-decoration: none;}
 
 td#heading_task {
   font-weight: bold;

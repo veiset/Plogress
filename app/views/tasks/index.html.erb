@@ -2,30 +2,30 @@
 <p>User id:<%= session[:user].id%></p>
 
 <%= form_tag({:controller => 'tasks', :action => 'create_new'}, :method => "post") do %>
-<%= submit_tag("Create new") %>
 <%= label_tag(:title, "Title") %>
 <%= text_field_tag(:title) %>
 <%= label_tag(:proficiency, "Proficiency") %>
 <%= number_field_tag(:proficiency) %>
+<%= submit_tag("Create new") %>
 <% end %>
 
 
-<table>
+<table id="tasks">
   <tr>
-    <th>Task</th>
-    <th>Time</th>
-    <th>Subtasks</th>
-    <th>Proficiency</th>
-    <th></th>
+      <td id="heading_task">Task</td>
+      <td id="heading_time">Time</td>
+      <td id="heading_subtask">Subtasks</td>
+      <td id="heading_prof">Proficiency</td>
+      <td id="heading_manage"></td>
   </tr>
 
   <% @tasks.each do |task| %>
       <tr>
-        <td><%= task.title %></td>
-        <td><%= task.duration %></td>
-        <td><%= task.subtasks.count %></td>
-        <td><%= task.proficiency_to_s %></td>
-        <td><%= link_to 'Manage', edit_task_path(task) %></td>
+        <td id="task"><%= task.title %></td>
+        <td id="time"><%= task.duration %></td>
+        <td id="subtask"><%= task.subtasks.count %></td>
+        <td id="prof"><%= task.proficiency_to_s %></td>
+        <td id="manage"><%= link_to 'Manage', edit_task_path(task) %></td>
         <!--<td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td>  -->
       </tr>
   <% end %>
