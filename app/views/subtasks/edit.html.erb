@@ -27,9 +27,9 @@
       </tr>
       <td colspan="5">
         <%= hidden_field(:subtask_id, @subtask.id) %>
-       <b><%= label_tag(:description, "Title") %> </b><br>
+        <b><%= label_tag(:description, "Title") %> </b><br>
         <%= text_area_tag :description, nil, :rows => 4, :cols => 68 %>
-                                   <br>
+        <br>
         <%= label_tag(:duration, "Duration") %>
         <%= text_field_tag(:duration) %>
 
@@ -42,4 +42,3 @@
 </table>
 
 <br/>
-<!--<%= link_to 'Back', tasks_path %>-->

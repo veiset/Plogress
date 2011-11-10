@@ -14,6 +14,8 @@ User.delete_all
 
 
 user = User.create(:username => "nani", :password => "nani")
+user2 = User.create(:username => "noni", :password => "noni")
+
 
 task = Task.create(:title => "Test 1", :user_id => 4, :proficiency => 2, :created => Time.now)
 
