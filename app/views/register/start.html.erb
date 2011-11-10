@@ -1,6 +1,6 @@
 <h1>User registration</h1>
 
-<%= form_tag("/register/register", :method => "post") do %>
+<%= form_tag({:controller => 'register', :action => 'register'}, :method => "post") do %>
 <%= submit_tag("Register") %>
 <%= label_tag(:username, "Username") %>
 <%= text_field_tag(:username) %>

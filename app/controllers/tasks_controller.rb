@@ -22,6 +22,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def create_new
+    @task = Task.create(:title => params[:title], :user_id => session[:user].id, :proficiency => params[:proficiency], :created => Time.now)
+    redirect_to :action => 'index'
+  end
+
   # GET /tasks/new
   # GET /tasks/new.json
   def new

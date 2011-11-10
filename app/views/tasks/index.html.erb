@@ -1,5 +1,15 @@
 <h1>Listing tasks</h1>
 <p>User id:<%= session[:user].id%></p>
+
+<%= form_tag({:controller => 'tasks', :action => 'create_new'}, :method => "post") do %>
+<%= submit_tag("Create new") %>
+<%= label_tag(:title, "Title") %>
+<%= text_field_tag(:title) %>
+<%= label_tag(:proficiency, "Proficiency") %>
+<%= number_field_tag(:proficiency) %>
+<% end %>
+
+
 <table>
   <tr>
     <th>Task</th>

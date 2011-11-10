@@ -1,8 +1,11 @@
 Plogress::Application.routes.draw do
   resources :users
 
- root to: 'main#view', as: 'main'
+ root to: 'tasks#index', as: 'tasks'
   resources :sessions
+  
+post "tasks/create_new"  
+post "main/create"
 
   get "login/logout"
 
