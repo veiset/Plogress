@@ -24,8 +24,7 @@ ActiveRecord::Schema.define(:version => 20111110113549) do
 
   create_table "subtasks", :force => true do |t|
     t.string   "title"
-    t.integer  "difficulty"
-    t.integer  "level"
+    t.integer  "proficiency"
     t.date     "created"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,14 +1,14 @@
 class Subtask < ActiveRecord::Base
   belongs_to :task
   has_many :sessions, dependent: :destroy
-  validates_inclusion_of :difficulty, :in => 0..5
+  validates_inclusion_of :proficiency, :in => 0..4
 
-  def level_strings
-    return ["Unspecified", "Very easy", "Easy", "Medium", "Hard", "Very hard"]
+  def proficiency_level
+    return ["None", "Bad", "Decent", "Good", "Proficient"]
   end
 
-  def level_to_s
-    return level_strings[level]
+  def proficiency_to_s
+    return proficiency_level[proficiency]
   end
 
   def duration

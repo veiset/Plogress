@@ -2,8 +2,7 @@ class CreateSubtasks < ActiveRecord::Migration
   def change
     create_table :subtasks do |t|
       t.string :title
-      t.integer :difficulty
-      t.integer :level
+      t.integer :proficiency
       t.date :created
 
       t.timestamps

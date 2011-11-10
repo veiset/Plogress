@@ -1,7 +1,5 @@
 <h1>Editing task</h1>
 
-<%= render 'form' %>
-
 Subtasks:  <br>
 <% @x = Subtask.find_all_by_task_id(@task.id)  %>
 <% @x.each do |subtask| %>
@@ -11,10 +9,13 @@ Subtasks:  <br>
     <br/>
   </tr>
 <% end %>
-<br>
-######
+<br />
 <%= link_to 'Add subtask', :controller => 'subtasks', :action => 'new', :task_id => @task.id  %>
 
 <p/><br>
+
+<%= render 'form' %>
+
+
 <%= link_to 'Show', @task %> |
 <%= link_to 'Back', tasks_path %>
