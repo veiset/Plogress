@@ -1,15 +1,6 @@
 <h1>Listing tasks</h1>
 <p>User id:<%= session[:user].id%></p>
 
-<%= form_tag({:controller => 'tasks', :action => 'create_new'}, :method => "post") do %>
-<%= label_tag(:title, "Title") %>
-<%= text_field_tag(:title) %>
-<%= label_tag(:proficiency, "Proficiency") %>
-<%= number_field_tag(:proficiency) %>
-<%= submit_tag("Create new") %>
-<% end %>
-
-
 <table id="tasks">
   <tr>
       <td id="heading_task">Task</td>
@@ -26,11 +17,19 @@
         <td id="subtask"><%= task.subtasks.count %></td>
         <td id="prof"><%= task.proficiency_to_s %></td>
         <td id="manage"><%= link_to 'Manage', edit_task_path(task) %></td>
-        <!--<td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td>  -->
       </tr>
   <% end %>
+   <tr>
+     <%= form_tag({:controller => 'tasks', :action => 'create_new'}, :method => "post") do %>
+     <td>
+<%= label_tag(:title, "Title") %></td>
+         <td>
+<%= text_field_tag(:title) %>    </td>
+<td><%= label_tag(:proficiency, "Proficiency") %>  </td>
+<%= number_field_tag(:proficiency) %>
+<td><%= submit_tag("Create new") %> </td>
+</td><% end %></tr>
 </table>
 
-<br />
 
-<%= link_to 'New Task', new_task_path %>
+<!--<br /> <%= link_to 'New Task', new_task_path %>  -->
