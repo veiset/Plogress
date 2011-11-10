@@ -22,7 +22,18 @@
 
       <div class="field">
     <%= f.label :proficiency %><br />
-    <%= select( :proficiency, "proficiency", [['None',0],['Bad',1],['Decent',2],['Good',3,],['Proficient',4]]) %>
+        <% @selects = [['None', 0], ['Bad', 1], ['Decent', 2], ['Good', 3,], ['Proficient', 4]] %>
+        <select id="proficiency_proficiency" name="proficiency[proficiency]">
+          <% @selects.each do |item| %>
+            <option value="<%= item[1] %>"
+            <% if item[1] == @subtask.proficiency %>
+               selected="selected"
+            <% end %>
+            >
+            <%= item[0] %>
+            </option>
+          <% end %>
+        </select>
 
   </div>
   <div class="actions">
