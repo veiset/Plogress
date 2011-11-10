@@ -10,6 +10,7 @@ class SubtasksController < ApplicationController
   # GET /subtasks/1/edit
   def edit
     @subtask = Subtask.find(params[:id])
+    @task = Task.find(@subtask.task_id)
   end
 
   # PUT /subtasks/1

@@ -16,10 +16,10 @@ class SessionsController < ApplicationController
   # PUT /sessions/1.json
   def update
     @session = Session.find(params[:id])
-
+    @subtask = Subtask.find(@session.subtask_id)
     respond_to do |format|
       if @session.update_attributes(params[:session])
-        format.html { redirect_to @session, notice: 'Session was successfully updated.' }
+        format.html { redirect_to edit_subtask_path(@subtask), notice: 'Session was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
