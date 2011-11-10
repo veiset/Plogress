@@ -1,5 +1,8 @@
 <h1>Editing task: <%= @task.title %></h1>
 <%= link_to 'Back to tasks', tasks_path %>
+
+<%= render 'form' %>  <br/>
+
 <table id="tasks">
   <tr>
     <td id="heading_task">Subtask</td>
@@ -34,6 +37,4 @@
       </tr>
   <% end %>
 </table>
-<br/>
-<%= render 'form' %>
 <br/>

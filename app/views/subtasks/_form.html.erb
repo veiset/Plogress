@@ -11,17 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field" >
+  <div class="edit_stuff">
     <%= f.hidden_field :task_id %>
-  </div>
 
-  <div class="field">
-    <%= f.label :title %><br />
+
+    <b><%= f.label :title %></b>
     <%= f.text_field :title %>
-  </div>
 
-      <div class="field">
-    <%= f.label :proficiency %><br />
+    <%= f.label :proficiency %>
         <% @selects = [['None', 0], ['Bad', 1], ['Decent', 2], ['Good', 3,], ['Proficient', 4]] %>
         <select id="proficiency_proficiency" name="proficiency[proficiency]">
           <% @selects.each do |item| %>
@@ -35,8 +32,7 @@
           <% end %>
         </select>
 
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Update' %>
   </div>
 <% end %>
+

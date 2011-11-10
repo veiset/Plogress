@@ -1,5 +1,8 @@
 <h1>Editing subtask: <%= @subtask.title %></h1>
 <%= link_to 'Back to task', edit_task_path(@task) %>
+
+<%= render 'form' %> <br/>
+
 <table id="tasks">
   <tr>
     <td id="heading_task">Subtask</td>
@@ -24,17 +27,19 @@
       </tr>
       <td colspan="5">
         <%= hidden_field(:subtask_id, @subtask.id) %>
-        <%= label_tag(:description, "Title") %>
-        <%= text_field_tag(:description) %>
+       <b><%= label_tag(:description, "Title") %> </b><br>
+        <%= text_area_tag :description, nil, :rows => 4, :cols => 68 %>
+                                   <br>
         <%= label_tag(:duration, "Duration") %>
         <%= text_field_tag(:duration) %>
 
         <%= submit_tag("Create new") %>
+        <br>
+
       </td>
       </tr>
   <% end %>
 </table>
 
-<%= render 'form' %>
 <br/>
 <!--<%= link_to 'Back', tasks_path %>-->
