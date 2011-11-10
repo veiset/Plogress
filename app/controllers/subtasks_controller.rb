@@ -67,6 +67,7 @@ class SubtasksController < ApplicationController
   # PUT /subtasks/1.json
   def update
     @subtask = Subtask.find(params[:id])
+    @subtask.proficiency = params[:proficiency][:proficiency]
 
     respond_to do |format|
       if @subtask.update_attributes(params[:subtask])
