@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>ID:</b>
+  <%= @task.id %>
+</p>
+
+<p>
   <b>Title:</b>
   <%= @task.title %>
 </p>
@@ -15,7 +20,15 @@
   <%= @task.user_id %>
 </p>
 
-<%= link_to 'Add subtask', subtask_path(@task.id) %>   |
+Subtasks:
+<% Subtask.where('task_id' => @task.id) do |subtask| %>
+  <tr>
+    <td><%= subtask.id %></td>
+    <td><%= subtask.title %></td>
+  </tr>
+<% end %>
+    <br/>
+<%= link_to 'Add subtask', :controller => 'subtasks', :action => 'new', :task_id => @task.id  %> |
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>

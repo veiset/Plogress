@@ -50,6 +50,7 @@ class SubtasksController < ApplicationController
   # GET /subtasks/new.json
   def new
     @subtask = Subtask.new
+    @subtask.task_id = params[:task_id]
 
     respond_to do |format|
       format.html # new.html.erb

@@ -13,6 +13,7 @@
 
 <% @subtasks.each do |subtask| %>
   <tr>
+    <td><%= subtask.task_id %></td>
     <td><%= subtask.title %></td>
     <td><%= subtask.difficulty %></td>
     <td><%= subtask.level %></td>
