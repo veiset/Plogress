@@ -1,2 +1,26 @@
-<h1>Main#view</h1>
-<p>Find me in app/views/main/view.html.erb</p>
+<h1>Listing tasks</h1>
+<p>User id:<%= session[:user].id%></p>
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Time</th>
+    <th>Subtasks</th>
+    <th>Proficiency</th>
+    <th></th>
+  </tr>
+
+  <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.duration %></td>
+        <td><%= task.subtasks.count %></td>
+        <td><%= task.proficiency_to_s %></td>
+        <td><%= link_to 'Manage', edit_task_path(task) %></td>
+        <!--<td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td>  -->
+      </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Task', new_task_path %>

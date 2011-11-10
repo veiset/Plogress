@@ -1,7 +1,11 @@
 class MainController < ApplicationController
   def view
-    #if(session[:user].nil?)
-    #  redirect_to :controller => 'login', :action => 'start'
-    #end
+    @tasks = Task.all
+    @user_tasks = Task.find_all_by_user_id(session[:user].id)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @tasks }
+    end
   end
 end

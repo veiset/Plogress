@@ -3,14 +3,19 @@ class Task < ActiveRecord::Base
   belongs_to :user
   validates_inclusion_of :proficiency, :in => 0..4
 
+  def duration
+    dur = 0.0
+    subtasks.each do |subtask|
+      dur += subtask.duration
+    end
+    return dur
+  end
+
   def proficiency_level
     return ["None", "Bad", "Decent", "Good", "Proficient"]
   end
 
   def proficiency_to_s
-    if(proficiency.nil?)
-      return "Unspecified"
-    end
     return proficiency_level[proficiency]
   end
 end
