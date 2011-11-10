@@ -1,39 +1,39 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-  <head>
-    <title>Plogress tracker!</title>
-      <%= stylesheet_link_tag    "application" %>
-      <%= stylesheet_link_tag    "styles" %>
-      <%= javascript_include_tag "application" %>
-      <%= csrf_meta_tags %>
-  </head>
+<head>
+  <title>Plogress tracker!</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= stylesheet_link_tag    "styles" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
-    <div class="logo">
-      <%= image_tag("logo.png")   %>
-    </div>
-    <div class="topbg">
+<body>
+<div class="logo">
+  <%= image_tag("logo.png")   %>
+</div>
+<div class="topbg">
 
-        <% if session[:user] %>
-          <div class="link"><%= link_to 'Tasks', :controller => 'tasks' %></div>
-               <div class="link"><%= link_to 'Profile', '#' %></div>
-            <div class="link"><%= link_to 'Logout',:controller => 'login', :action => 'logout' %></div>
-        <% else %>
-            <div class="link"><%= link_to 'Login', :controller => 'login', :action => 'start'  %></div>
-          <div class="link"><%= link_to 'Register', :controller => 'register', :action => 'start'  %></div>
+  <% if session[:user] %>
+      <div class="link"><%= link_to 'Tasks', :controller => 'tasks' %></div>
+      <div class="link"><%= link_to 'Profile', '#' %></div>
+      <div class="link"><%= link_to 'Logout',:controller => 'login', :action => 'logout' %></div>
+  <% else %>
+      <div class="link"><%= link_to 'Login', :controller => 'login', :action => 'start'  %></div>
+      <div class="link"><%= link_to 'Register', :controller => 'register', :action => 'start'  %></div>
 
-        <% end %>
-      </div>
-    </div>
+  <% end %>
+</div>
+</div>
 
-    <div class="fancy">
-      <%= image_tag("fancy.png")   %>
-    </div>
+<div class="fancy">
+  <%= image_tag("fancy.png")   %>
+</div>
 
-    <div class="content">
-        <%= yield %>
+<div class="content">
+  <%= yield %>
 
 
-    </div>
+</div>
 </body>
 </html>

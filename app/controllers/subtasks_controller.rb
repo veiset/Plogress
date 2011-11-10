@@ -17,10 +17,18 @@ class SubtasksController < ApplicationController
     end
 
     if (hour == 0 and minute == 0)
-       return nil
+      return nil
     else
       return hour,minute
     end
+  end
+
+
+  def create_new
+    test = params[:task_id].first[0]
+    task = Task.find(test)
+    Subtask.create(:title => params[:title], :proficiency => params[:proficiency][:proficiency], :task_id => params[:task_id], :created => Time.now)
+    redirect_to edit_task_path(task)
   end
 
 

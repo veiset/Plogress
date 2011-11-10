@@ -6,6 +6,7 @@ Plogress::Application.routes.draw do
   
 post "tasks/create_new"  
 post "main/create"
+post "subtasks/create_new"
 
   get "login/logout"
 
