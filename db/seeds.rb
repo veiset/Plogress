@@ -17,7 +17,7 @@ user = User.create(:username => "nani", :password => "nani")
 user2 = User.create(:username => "noni", :password => "noni")
 
 
-task = Task.create(:title => "Test 1", :user_id => 4, :proficiency => 2, :created => Time.now)
+task = Task.create(:title => "Test 1", :user_id => user.id, :proficiency => 2, :created => Time.now)
 
 subtask1 = Subtask.create(:title => "Subtest 1", :proficiency => 0, :task_id => task.id, :created => Time.now)
 subtask2 = Subtask.create(:title => "Subtest 2", :proficiency => 3, :task_id => task.id, :created => Time.now)

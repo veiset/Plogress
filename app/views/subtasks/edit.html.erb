@@ -1,7 +1,6 @@
 <h1>Editing subtask: <%= @subtask.title %></h1>
 <%= link_to 'Back to task', edit_task_path(@task) %>
 
-
 <table id="tasks">
   <tr>
     <td id="heading_task">Subtask</td>
@@ -25,7 +24,7 @@
         <td colspan="5">&nbsp;</td>
       </tr>
       <td colspan="5">
-        <%= hidden_field(:subtask_id, @subtask.id) %>
+        <%= hidden_field_tag(:subtask_id, @subtask.id) %>
         <b><%= label_tag(:description, "Title") %> </b><br>
         <%= text_area_tag :description, nil, :rows => 4, :cols => 68 %>
         <br>

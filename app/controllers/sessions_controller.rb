@@ -1,9 +1,8 @@
 class SessionsController < ApplicationController
 
   def create_new
-    test = params[:subtask_id].first[0]
-    subtask = Subtask.find(test)
-    Session.create(:description => params[:description], :duration => params[:duration], :subtask_id => test, :created => Time.now)
+    subtask = Subtask.find(params[:subtask_id])
+    Session.create(:description => params[:description], :duration => params[:duration], :subtask_id => subtask.id, :created => Time.now)
     redirect_to edit_subtask_path(subtask)
   end
 
