@@ -14,7 +14,9 @@ class Subtask < ActiveRecord::Base
   def duration
     dur = 0.0
     sessions.each do |session|
-      dur += session.duration
+      if (!session.duration.nil?)
+        dur += session.duration
+      end
     end
     return dur.round(2)
   end
