@@ -11,38 +11,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111110113549) do
+ActiveRecord::Schema.define(:version => 20111118011432) do
 
   create_table "sessions", :force => true do |t|
-    t.decimal  "duration"
-    t.text     "description"
-    t.date     "created"
-    t.integer  "subtask_id"
+    t.decimal "duration"
+    t.text "title"
+    t.date "created"
+    t.integer "subtask_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text "description"
   end
 
   create_table "subtasks", :force => true do |t|
-    t.string   "title"
-    t.integer  "proficiency"
-    t.date     "created"
+    t.string "title"
+    t.integer "proficiency"
+    t.date "created"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "task_id"
+    t.integer "task_id"
   end
 
   create_table "tasks", :force => true do |t|
-    t.string   "title"
-    t.date     "created"
-    t.integer  "user_id"
+    t.string "title"
+    t.date "created"
+    t.integer "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "proficiency"
+    t.integer "proficiency"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "password_digest"
+    t.string "username"
+    t.string "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
